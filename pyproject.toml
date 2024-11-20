@@ -122,7 +122,7 @@ exclude_lines = [
 csc = "cellmap_segmentation_challenge.cli:run"
 
 [tool.pixi.project]
-channels = ["conda-forge", "pytorch"]
+channels = ["nvidia", "conda-forge", "pytorch"]
 platforms = ["win-64", "linux-64", "osx-arm64", "osx-64"]
 
 [tool.pixi.pypi-dependencies]
@@ -133,7 +133,11 @@ default = { solve-group = "default" }
 dev = { features = ["dev", "test", "docs"], solve-group = "default" }
 docs = { features = ["docs"], solve-group = "default" }
 test = { features = ["test"], solve-group = "default" }
-gpu = { features = ["gpu"] }
+gpu = { features = ["cuda124"], solve-group = "gpu" }
+cuda124 = { features = ["cuda124"], solve-group = "gpu" }
+cuda121 = { features = ["cuda121"]}
+cuda118 = { features = ["cuda118"]}
+cuda117 = { features = ["cuda117"]}
 
 [tool.pixi.tasks]
 
@@ -147,11 +151,31 @@ numpy = "1.*"
 [tool.pixi.feature.dev.dependencies]
 gunpowder = "*"
 
-[tool.pixi.feature.gpu]
-platforms = ["linux-64"]
+[tool.pixi.feature.cuda124]
 system-requirements = {cuda = "12.4"}
-channels = ["pytorch", "nvidia", "conda-forge"]
 
-[tool.pixi.feature.gpu.dependencies]
-pytorch-cuda = "*"
-torchvision = ">=0.20.1,<0.21"
+[tool.pixi.feature.cuda124.target.linux-64.dependencies]
+pytorch-cuda = { version = "12.4", channel = "pytorch" }
+torchvision = { version = ">=0.20.1,<0.21", channel = "pytorch" }
+
+[tool.pixi.feature.cuda121]
+system-requirements = {cuda = "12.1"}
+
+[tool.pixi.feature.cuda121.target.linux-64.dependencies]
+pytorch-cuda = { version = "12.1", channel = "pytorch" }
+torchvision = { version = "*", channel = "pytorch" }
+
+[tool.pixi.feature.cuda118]
+system-requirements = {cuda = "11.8"}
+
+[tool.pixi.feature.cuda118.target.linux-64.dependencies]
+pytorch-cuda = { version = "11.8", channel = "pytorch" }
+torchvision = { version = "*", channel = "pytorch" }
+
+[tool.pixi.feature.cuda117]
+system-requirements = {cuda = "11.7"}
+
+[tool.pixi.feature.cuda117.target.linux-64.dependencies]
+pytorch-cuda = { version = "11.7", channel = "pytorch" }
+torchvision = { version = "*", channel = "pytorch" }
+
