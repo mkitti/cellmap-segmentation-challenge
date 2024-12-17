@@ -2,16 +2,31 @@
 
 # CellMap Segmentation Challenge
 
-Welcome to the **CellMap Segmentation Challenge** documentation!
+Welcome to the **CellMap Segmentation Challenge** toolbox!
 
 This Python package provides a simple and flexible API for:
 
-- Accessing challenge data
-- Running model training
-- Making predictions
-- Evaluating results
+- [Accessing challenge data](#download-the-data)
+- [Running model training](#train-a-model)
+- [Making predictions](#predict-on-test-data)
+- [Evaluating results](#post-process-model-predictions)
 
 The package is built on top of the [`cellmap-data`](https://github.com/janelia-cellmap/cellmap-data) package, which offers tools for interacting with the CellMap data format. Whether you're a beginner or advanced user, this package is designed to be easy to use and highly extensible.
+
+## Table of Contents
+1. [Getting Started](#getting-started)
+    - [Set up your environment](#set-up-your-environment)
+    - [Clone the repository](#clone-the-repository)
+    - [Repository structure](#repository-structure)
+    - [Download the data](#download-the-data)
+2. [Train a model](#train-a-model)
+3. [Predict on test data](#predict-on-test-data)
+4. [Post-process model predictions](#post-process-model-predictions)
+5. [Visualize data and predictions](#visualize-data-and-predictions)
+6. [Submit your final predictions](#submit-your-final-predictions)
+    - [Data format](#data-format)
+8. [Issues](#issues)
+7. [Acknowledgements](#acknowledgements)
 
 # Getting started
 
@@ -248,7 +263,7 @@ csc visualize --help
 
 # Submit your final predictions
 
-To submit your predictions, first make sure that they are in the correct format (see below), then submit them through [the online submission portal](https://staging.cellmapchallenge.2i2c.cloud/upload). You will need to sign in with your GitHub account to submit your predictions.
+Once submissions open, ensure your predictions are in the correct format (see below), then upload them through [the online submission portal](https://cellmapchallenge.janelia.org/submissions/). You will need to sign in with your GitHub account to submit your predictions.
 
 For convenience, if you have followed the prediction and processing steps described above and in the example scripts, you can use the following command to zip your predictions in the correct format:
 
@@ -297,3 +312,11 @@ To zip the Zarr-2 file, you can use the following command:
 ```bash
 zip -r submission.zip submission.zarr
 ```
+
+# Issues
+If you encounter any code-related issues, please open an issue on the [GitHub repository](https://github.com/janelia-cellmap/cellmap-segmentation-challenge/issues) so we can address it as soon as possible. To help us resolve the issue, please provide as much information as possible, including the command you ran, the error message you received, and any other relevant information.
+
+We also have opened [the discussion feature on this repository](https://github.com/janelia-cellmap/cellmap-segmentation-challenge/discussions), so feel free to ask questions or share your thoughts, ideas, progress, etc. there! We are happy to help you with any questions you may have.
+
+# Acknowledgements
+[@rhoadesScholar](https://www.linkedin.com/in/rhoadesscholar/) served as the lead developer for this toolbox, supported by contributions from [@aemmav](https://www.linkedin.com/in/emma-avetissian-362089297/), [@d-v-b](https://www.linkedin.com/in/davis-bennett-62922126a/), and [@mzouink](https://www.linkedin.com/in/zouinkhi/). Additional support was provided by [@jonesa3](https://www.linkedin.com/in/alysonpetruncio/), [@rinva](https://www.linkedin.com/in/rebecca-vorimo-831271a0/), [@avweigel](https://www.linkedin.com/in/aubrey-weigel/), and [@yuriyzubov](https://www.linkedin.com/in/yuriizubov/). The CellMap Segmentation Challenge is organized by Janelia's [CellMap Project Team](https://www.janelia.org/project-team/cellmap).
